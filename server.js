@@ -629,11 +629,32 @@ async function apiAdmin(req, res, pathname, method, ip) {
   }
 
   const session = isAdmin(req);
-  if (!session) return json(res, 401, { error: "Admin authentication required" });
-  if (!adminCsrfValid(req, session)) {
-    audit("admin-csrf", ip, "admin", pathname, false, "csrf mismatch");
-    return json(res, 403, { error: "CSRF token invalid — refresh the panel." });
-  }
+
+if (!session) {
+  return json(res, 401, {
+    error: "Admin authentication required",
+  });
+}
+
+const safeMethod =
+  method === "GET" ||
+  method === "HEAD" ||
+  method === "OPTIONS";
+
+if (!safeMethod && !adminCsrfValid(req, session)) {
+  audit(
+    "admin-csrf",
+    ip,
+    "admin",
+    pathname,
+    false,
+    "csrf mismatch"
+  );
+
+  return json(res, 403, {
+    error: "CSRF token invalid — refresh the panel.",
+  });
+}
 
   if (pathname === "/api/admin/logout" && method === "POST") {
     const c = parseCookies(req).vr_admin;
