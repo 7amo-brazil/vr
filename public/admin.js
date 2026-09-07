@@ -33,7 +33,9 @@ function esc(s) {
 
 async function api(path, opts = {}) {
   const headers = Object.assign({ "Content-Type": "application/json" }, opts.headers || {});
-  if (csrf && (opts.method || "GET") !== "GET") headers["X-CSRF-Token"] = csrf;
+  if (csrf) {
+  headers["X-CSRF-Token"] = csrf;
+}
   const r = await fetch(path, {
     credentials: "same-origin",
     headers,
