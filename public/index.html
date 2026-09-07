@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Status LUX — 7amo Brazil</title>
+  <meta name="description" content="Get the official VR (Meta Quest) Discord badge — authorize once, it runs 24/7. By 7amo Brazil.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>7</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+
+  <div class="wrap">
+
+    <header>
+      <div class="logo">
+        <span class="etile" style="width:38px;height:38px;border-radius:11px;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="7" width="19" height="10" rx="5"/>
+            <circle cx="8.5" cy="12" r="1.5" fill="#fff" stroke="none"/>
+            <circle cx="15.5" cy="12" r="1.5" fill="#fff" stroke="none"/>
+            <path d="M10.5 17q1.5 2.5 3 0"/>
+          </svg>
+        </span>
+        <span>VR Status</span> <em class="tag">LUX • FOREVER</em>
+      </div>
+      <div class="meta">v5.0 • by <b>7amo Brazil</b></div>
+    </header>
+
+    <main>
+
+      <!-- ═══════════ 1. START ═══════════ -->
+      <section id="screen-start" class="screen">
+        <div class="card">
+          <div class="etile lg">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="7" width="19" height="10" rx="5"/>
+              <circle cx="8.5" cy="12" r="1.6" fill="#fff" stroke="none"/>
+              <circle cx="15.5" cy="12" r="1.6" fill="#fff" stroke="none"/>
+              <path d="M10.5 17q1.5 2.5 3 0"/>
+            </svg>
+          </div>
+          <h1 class="center">The VR badge that never sleeps</h1>
+          <p class="sub center">Authorize <b>once</b> (~30 seconds). The engine keeps your Meta&nbsp;Quest badge alive
+          <b>24/7</b> — close the tab, sleep, live your life. Each account is protected by its
+          <b>personal key</b>. No one else can touch it.</p>
+          <input id="label-input" type="text" maxlength="40" autocomplete="off"
+                 placeholder="Optional: a label for your account (e.g. your name)">
+          <button id="btn-start" class="btn primary">✦ &nbsp;Open Discord &amp; Authorize</button>
+          <ul class="trust">
+            <li>Personal key for your account — only you (or the admin) can pause/remove it</li>
+            <li>Auto token refresh + self-healing engine — zero maintenance</li>
+            <li>Credentials never leave the server, never shown again</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═══════════ 2. AUTHORIZE + PASTE ═══════════ -->
+      <section id="screen-paste" class="screen hidden">
+        <div class="card">
+          <h2 class="grad">Almost there</h2>
+          <ol class="steps">
+            <li><b>Authorize</b> on the Discord page (a new window just opened). If the browser then shows an error page on <span class="mono">oculus.com</span> — that's <b>expected</b>.</li>
+            <li>Copy the <b>full URL</b> from the address bar of that error page.</li>
+            <li>Paste it below and press <b>Activate</b>.</li>
+          </ol>
+          <details class="linkbox">
+            <summary>Authorization link (if the window didn't open)</summary>
+            <p id="auth-url-box" class="hint mono"></p>
+          </details>
+          <button id="btn-reopen" class="btn ghost small">↗ Reopen the authorization window</button>
+          <input id="paste-input" type="text" autocomplete="off" spellcheck="false"
+                 placeholder="https://www.oculus.com/oauth_account_linking/login_redirect?code=…">
+          <!-- honeypot: humans never see or fill this -->
+          <input type="text" name="website" id="hp" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button id="btn-activate" class="btn primary" disabled>⚡ &nbsp;Activate my VR badge</button>
+          <div id="err-paste" class="error hidden"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 3. DONE — LIVE + KEY ═══════════ -->
+      <section id="screen-done" class="screen hidden">
+        <div class="card center">
+          <div class="etile lg">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.5l1.2 2.8 2.8 1.2-2.8 1.2L12 10.5 10.8 7.7 8 6.5l2.8-1.2z"/>
+              <path d="M5 13l.9 2 2 .9-2 .9L5 18.8l-.9-2-2-.9 2-.9z"/>
+              <path d="M19 11l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z"/>
+              <path d="M12 13v5" stroke-width="2"/>
+            </svg>
+          </div>
+          <h1 class="center" style="font-size:23px;">You're LIVE — forever</h1>
+          <p class="sub">Your VR badge is now kept alive by the engine, 24/7. You can close this tab.</p>
+
+          <div class="keybox">
+            <label>Your personal key — shown once</label>
+            <div class="key" id="done-key">—</div>
+            <button id="btn-copy" class="btn ghost small" style="width:auto;margin-top:10px;">⧉ Copy key</button>
+            <p class="warn">Save this key somewhere safe. It's the only way (besides the admin) to pause or remove <b>your</b> badge later.</p>
+          </div>
+
+          <div class="idbox">
+            <div><label>Account label</label><span id="done-label">—</span></div>
+            <div><label>Session ID</label><span class="mono" id="done-id">—</span></div>
+          </div>
+
+          <div class="actions col" style="max-width:340px;margin:14px auto 0;">
+            <button id="btn-mine" class="btn primary">🔑 Open my account dashboard</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 <b>7amo Brazil</b> — All rights reserved • Unofficial tool, not affiliated with Discord or Meta
+    </footer>
+
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

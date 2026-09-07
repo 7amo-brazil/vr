@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — VR Status LUX • 7amo Brazil</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>7</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+
+  <div class="wrap">
+
+    <header>
+      <div class="logo">
+        <span class="etile" style="width:38px;height:38px;border-radius:11px;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17l-1-9 5 4 4-6 4 6 5-4-1 9H4z"/><path d="M5 20h14"/>
+          </svg>
+        </span>
+        <span>Control Room</span> <em class="tag">LUX ADMIN</em>
+      </div>
+      <div class="meta" id="srv-meta">v5.0 • by 7amo Brazil</div>
+    </header>
+
+    <main>
+
+      <!-- ═══════════ LOGIN ═══════════ -->
+      <section id="screen-login" class="screen">
+        <div class="card center" style="max-width:440px;margin:0 auto;">
+          <div class="etile lg">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/>
+              <circle cx="12" cy="10.5" r="1.8"/>
+              <path d="M12 12v3.5"/>
+            </svg>
+          </div>
+          <h1 class="center" style="font-size:21px;">Admin access</h1>
+          <p class="sub">Protected by scrypt hashing, CSRF, and per-IP lockout (5 fails → 15 min).</p>
+          <input id="pw-input" type="password" autocomplete="current-password" placeholder="Admin password">
+          <button id="btn-login" class="btn primary">🛡 Unlock the control room</button>
+          <div id="err-login" class="error hidden"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ DASHBOARD ═══════════ -->
+      <section id="screen-dash" class="screen hidden">
+        <div class="card">
+          <div class="status-row">
+            <span class="pulse-dot"></span>
+            <h2 class="grad">Sessions</h2>
+            <span class="spacer"></span>
+            <button id="btn-logout" class="btn ghost small">Lock &amp; exit</button>
+          </div>
+
+          <div class="grid stats">
+            <div class="stat"><label>Total accounts</label><span id="s-total">0</span></div>
+            <div class="stat"><label>Active</label><span id="s-active">0</span></div>
+            <div class="stat"><label>Server uptime</label><span id="s-uptime">—</span></div>
+            <div class="stat"><label>Engine</label><span>24/7 LUX</span></div>
+          </div>
+
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Account</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                  <th>Token TTL</th>
+                  <th>Last beat</th>
+                  <th>Beats</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="tiny" style="margin-top:10px;">Auto-refreshes every 10s. Claim keys and raw tokens are never displayed — by design.</p>
+
+          <div class="section-title">
+            <span class="etile">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/>
+              </svg>
+            </span>
+            <span>Audit log (last 50 events)</span>
+          </div>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr><th>Time</th><th>Action</th><th>Actor</th><th>Target</th><th>IP</th><th>Result</th></tr>
+              </thead>
+              <tbody id="audit-rows"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 <b>7amo Brazil</b> — All rights reserved</footer>
+
+  </div>
+  <script src="/admin.js"></script>
+</body>
+</html>

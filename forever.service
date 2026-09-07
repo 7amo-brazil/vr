@@ -1,0 +1,27 @@
+# systemd unit — keeps the VR badge engine running 24/7 and after reboots
+# Install:
+#   sudo cp forever.service /etc/systemd/system/discord-vr-forever.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now discord-vr-forever
+#   journalctl -u discord-vr-forever -f     (watch logs)
+
+[Unit]
+Description=Discord VR Status - LUX Forever Edition (7amo Brazil)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/discord-vr-forever
+Environment=ADMIN_PASSWORD=CHANGE_ME_STRONG_PASSWORD
+Environment=PORT=3000
+ExecStart=/usr/bin/node /opt/discord-vr-forever/server.js
+Restart=always
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+# Caddy reverse proxy with automatic HTTPS (Let's Encrypt)
+# 1) Point your domain's A record at the server IP
+# 2) caddy run --config /etc/caddy/Caddyfile
+# Replace your-domain.com with your actual domain.
+
+your-domain.com {
+	reverse_proxy 127.0.0.1:3000
+}

@@ -1,0 +1,14 @@
+{
+  "name": "discord-vr-status-lux",
+  "version": "5.0.0",
+  "description": "Discord VR (Meta Quest) badge — LUX Forever Edition: persistent 24/7 badge engine, per-account claim keys, hardened security. Zero dependencies.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "7amo Brazil",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

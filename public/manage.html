@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — VR Status LUX • 7amo Brazil</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>7</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+
+  <div class="wrap">
+
+    <header>
+      <div class="logo">
+        <span class="etile" style="width:38px;height:38px;border-radius:11px;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>
+          </svg>
+        </span>
+        <span>My Account</span> <em class="tag">LUX</em>
+      </div>
+      <div class="meta">by <b>7amo Brazil</b></div>
+    </header>
+
+    <main>
+
+      <!-- ═══════════ 1. KEY GATE ═══════════ -->
+      <section id="screen-key" class="screen">
+        <div class="card" style="max-width:460px;margin:0 auto;">
+          <div class="etile lg">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round">
+              <circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>
+            </svg>
+          </div>
+          <h1 class="center" style="font-size:21px;">Enter your personal key</h1>
+          <p class="sub center">Only the key holder can view or control this account.</p>
+          <input id="key-input" type="text" maxlength="24" autocomplete="off" spellcheck="false"
+                 placeholder="7AMO-XXXXXXXX-XXXX">
+          <button id="btn-verify" class="btn primary">🔓 Unlock my account</button>
+          <div id="err-key" class="error hidden"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 2. MY ACCOUNT ═══════════ -->
+      <section id="screen-acct" class="screen hidden">
+        <div class="card">
+          <div class="status-row">
+            <span class="pulse-dot"></span>
+            <h2 class="grad" id="acct-title">My VR account</h2>
+            <span id="acct-status" class="badge ok">Active</span>
+            <span class="spacer"></span>
+            <button id="btn-logout" class="btn ghost small">Lock</button>
+          </div>
+          <p class="sub">This is your account on the LUX engine. Live data, auto-refreshed every 10 seconds.</p>
+
+          <div class="idbox">
+            <div><label>Account label</label><span id="a-label">—</span></div>
+            <div><label>Session ID</label><span class="mono" id="a-id">—</span></div>
+            <div><label>Created</label><span class="tiny" id="a-created">—</span></div>
+            <div><label>Session</label><span class="mono" id="a-session">—</span></div>
+          </div>
+
+          <div class="grid stats">
+            <div class="stat"><label>Token valid for</label><span id="a-ttl">—</span></div>
+            <div class="stat"><label>Last keep-alive</label><span id="a-beat">—</span></div>
+            <div class="stat"><label>Total beats</label><span id="a-beats">—</span></div>
+            <div class="stat"><label>Engine</label><span>24/7 LUX</span></div>
+          </div>
+
+          <div id="a-err-note" class="error hidden"></div>
+
+          <div class="actions col" style="max-width:380px;margin:20px auto 0;">
+            <button id="btn-toggle" class="btn primary">⏸ Pause my badge</button>
+            <button id="btn-delete" class="btn danger">✕ Remove my badge permanently</button>
+          </div>
+          <div id="err-acct" class="error hidden"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ 3. REMOVED ═══════════ -->
+      <section id="screen-gone" class="screen hidden">
+        <div class="card center">
+          <div class="etile lg">
+            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round">
+              <path d="M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13"/>
+            </svg>
+          </div>
+          <h1 class="center" style="font-size:23px;">Your badge has been removed</h1>
+          <p class="sub">The session was deleted on Discord and your data was wiped from the server. You're all clean.</p>
+          <div class="actions col" style="max-width:340px;margin:10px auto 0;">
+            <a class="btn primary" href="/">↩ Back to home</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>© 2026 <b>7amo Brazil</b> — All rights reserved</footer>
+
+  </div>
+  <script src="/manage.js"></script>
+</body>
+</html>
