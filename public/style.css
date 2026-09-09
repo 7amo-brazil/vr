@@ -4,7 +4,16 @@
    Supreme Black + Purple Theme with Advanced Effects
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Premium type system: a display face with real character for headings/
+   numbers, a clean workhorse sans for body copy, and Arabic-ready fallbacks
+   so the panel still looks intentional if any UI text switches to Arabic. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Cairo:wght@500;600;700&display=swap');
+
 :root {
+  /* Typography */
+  --font-display: "Bricolage Grotesque", "Cairo", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Cairo", "Segoe UI", sans-serif;
+
   /* Core Colors - Richer & Deeper */
   --bg: #05040a;
   --bg2: #0a0815;
@@ -52,9 +61,9 @@
   --radius-xs: 12px;
   
   /* Shadows */
-  --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 100px rgba(139, 92, 246, 0.1) inset;
-  --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 60px rgba(139, 92, 246, 0.08) inset;
-  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.3);
+  --shadow-lg: 0 36px 90px rgba(0, 0, 0, 0.72), 0 0 110px rgba(139, 92, 246, 0.12) inset;
+  --shadow-md: 0 18px 52px rgba(0, 0, 0, 0.52), 0 0 65px rgba(139, 92, 246, 0.09) inset;
+  --shadow-glow: 0 0 44px rgba(139, 92, 246, 0.32);
 
   /* Premium Motion & Finish */
   --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
@@ -93,7 +102,7 @@ body {
     /* Base vertical gradient */
     linear-gradient(180deg, #030209 0%, #06040f 30%, #09061a 65%, #05030d 100%);
   color: var(--text);
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Inter, Arial, sans-serif;
+  font-family: var(--font-body);
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
@@ -184,8 +193,8 @@ body::after {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px) saturate(140%);
-  opacity: 0.65;
+  filter: blur(90px) saturate(150%);
+  opacity: 0.72;
   pointer-events: none;
   will-change: transform, opacity;
   mix-blend-mode: screen;
@@ -421,9 +430,10 @@ header {
 }
 
 .logo { 
-  font-weight: 900; 
-  font-size: 20px; 
-  letter-spacing: 0.3px; 
+  font-family: var(--font-display);
+  font-weight: 700; 
+  font-size: 21px; 
+  letter-spacing: 0.2px; 
   display: flex; 
   align-items: center; 
   gap: 12px;
@@ -569,16 +579,17 @@ header {
 
 /* Enhanced Typography */
 h1 {
+  font-family: var(--font-display);
   font-size: 32px; 
   margin-bottom: 16px; 
-  letter-spacing: -0.5px; 
+  letter-spacing: -0.3px; 
   line-height: 1.2;
   background: linear-gradient(100deg, var(--purple5) 0%, var(--purple3) 25%, var(--violet) 50%, var(--purple4) 75%, var(--purple5) 100%);
   background-size: 250% 100%;
   -webkit-background-clip: text; 
   background-clip: text; 
   color: transparent;
-  font-weight: 800;
+  font-weight: 700;
   filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.35));
   animation: textGlow 6s ease-in-out infinite;
 }
@@ -589,6 +600,7 @@ h1 {
 }
 
 h2 { 
+  font-family: var(--font-display);
   font-size: 22px; 
   margin-bottom: 12px; 
   font-weight: 700;
@@ -899,9 +911,10 @@ input:focus {
   background-size: 300% 100%;
   color: #fff; 
   width: 100%;
+  letter-spacing: 0.2px;
   box-shadow: 
-    0 12px 40px rgba(139, 92, 246, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    0 14px 44px rgba(139, 92, 246, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   animation: primaryDrift 6s ease-in-out infinite;
 }
@@ -1143,7 +1156,8 @@ input:focus {
 }
 
 .stat span { 
-  font-size: 18px; 
+  font-family: var(--font-display);
+  font-size: 19px; 
   font-weight: 700; 
   color: var(--text);
 }
@@ -1290,12 +1304,13 @@ td.empty {
 }
 
 .section-title { 
+  font-family: var(--font-display);
   display: flex; 
   align-items: center; 
   gap: 12px; 
   margin: 32px 0 8px; 
-  font-size: 16px; 
-  font-weight: 800;
+  font-size: 16.5px; 
+  font-weight: 700;
   color: var(--text);
 }
 
